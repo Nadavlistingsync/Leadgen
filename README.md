@@ -1,16 +1,16 @@
-# Lead Generation AI
+# Lead Generation Dashboard
 
-A comprehensive lead generation system that combines web scraping, API integration, and data analysis to identify and manage real estate leads.
+A Streamlit-based dashboard for managing and visualizing real estate leads.
 
 ## Features
 
-- **Web Scraping**: Automatically collect leads from various sources
-- **API Integration**: Access data from multiple real estate APIs
-- **Dashboard**: Visualize and manage leads with an interactive dashboard
-- **Meeting Scheduler**: Automatically schedule meetings with leads
-- **Data Analysis**: Analyze lead quality and conversion rates
+- Lead management and visualization
+- Meeting scheduling
+- Lead source tracking
+- Interactive charts and metrics
+- Meeting notes management
 
-## Installation
+## Local Development
 
 1. Clone the repository:
 ```bash
@@ -18,7 +18,7 @@ git clone https://github.com/yourusername/leadgen-ai.git
 cd leadgen-ai
 ```
 
-2. Create a virtual environment:
+2. Create and activate a virtual environment:
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
@@ -29,53 +29,46 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-4. Set up environment variables:
+4. Run the dashboard:
 ```bash
-cp .env.example .env
-# Edit .env with your API keys and credentials
+streamlit run streamlit_app.py
 ```
 
-## Usage
+## Deployment
 
-1. Run the scrapers:
-```bash
-python src/run_scrapers.py
-```
+### Deploying to Streamlit Cloud
 
-2. Start the dashboard:
-```bash
-python src/run_dashboard.py
+1. Push your code to GitHub
+2. Go to [Streamlit Cloud](https://streamlit.io/cloud)
+3. Click "New app"
+4. Connect your GitHub repository
+5. Select the main file path: `streamlit_app.py`
+6. Click "Deploy"
+
+### Environment Variables
+
+Create a `.streamlit/secrets.toml` file with any necessary API keys or configuration:
+
+```toml
+[api_keys]
+# Add your API keys here
 ```
 
 ## Project Structure
 
 ```
 leadgen-ai/
-├── src/
-│   ├── scraper/
-│   │   ├── base_scraper.py
-│   │   ├── public_records_scraper.py
-│   │   └── professional_directory_scraper.py
-│   ├── utils/
-│   │   ├── api_client.py
-│   │   └── data_processor.py
-│   ├── config/
-│   │   └── settings.py
-│   ├── dashboard.py
-│   ├── run_scrapers.py
-│   └── run_dashboard.py
-├── data/
-├── requirements.txt
-├── .env.example
-└── README.md
+├── data/                  # Data directory
+│   ├── sample_leads.json  # Sample leads data
+│   └── meeting_notes/     # Meeting notes storage
+├── src/                   # Source code
+│   └── dashboard.py       # Dashboard implementation
+├── requirements.txt       # Python dependencies
+├── streamlit_app.py       # Main entry point
+├── setup.sh              # Setup script
+├── Procfile              # Heroku deployment config
+└── README.md             # This file
 ```
-
-## API Keys Required
-
-- ATTOM Data API
-- Google Maps API
-- SchoolDigger API
-- ClimateCheck API
 
 ## Contributing
 
@@ -87,4 +80,4 @@ leadgen-ai/
 
 ## License
 
-MIT License - see LICENSE file for details 
+MIT License 

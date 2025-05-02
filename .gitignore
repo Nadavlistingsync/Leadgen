@@ -35,25 +35,15 @@ ENV/
 *.swp
 *.swo
 
-# Data files
-data/
-*.json
-*.csv
-*.xlsx
+# Streamlit
+.streamlit/
 
-# Credentials
-*.pem
-*.key
+# Data
+data/meeting_notes/
 *.json
-!package.json
 
 # Logs
 *.log
-logs/
-
-# Cache
-.cache/
-.pytest_cache/
 
 # OS
 .DS_Store
