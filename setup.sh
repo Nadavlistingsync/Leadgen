@@ -1,31 +1,37 @@
 #!/bin/bash
 
+# Create virtual environment
+echo "Creating virtual environment..."
+python -m venv venv
+
+# Activate virtual environment
+echo "Activating virtual environment..."
+source venv/bin/activate
+
+# Upgrade pip
+echo "Upgrading pip..."
+pip install --upgrade pip
+
+# Install dependencies
+echo "Installing dependencies..."
+pip install -r requirements.txt
+
 # Create necessary directories
-mkdir -p ~/.streamlit/
-mkdir -p data/
-mkdir -p data/meeting_notes/
+echo "Creating necessary directories..."
+mkdir -p data/meeting_notes
+mkdir -p data/leads
+mkdir -p config
 
-# Create Streamlit credentials
-echo "\
-[general]\n\
-email = \"\"\n\
-" > ~/.streamlit/credentials.toml
+# Set up Streamlit configuration
+echo "Setting up Streamlit configuration..."
+mkdir -p .streamlit
+touch .streamlit/secrets.toml
 
-# Create Streamlit config
-echo "\
-[server]\n\
-headless = true\n\
-enableCORS = false\n\
-port = $PORT\n\
-[browser]\n\
-gatherUsageStats = false\n\
-[theme]\n\
-primaryColor = '#FF4B4B'\n\
-backgroundColor = '#FFFFFF'\n\
-secondaryBackgroundColor = '#F0F2F6'\n\
-textColor = '#262730'\n\
-font = 'sans serif'\n\
-" > ~/.streamlit/config.toml
+# Initialize git if not already initialized
+if [ ! -d ".git" ]; then
+    echo "Initializing git repository..."
+    git init
+fi
 
-# Install requirements
-pip install -r requirements.txt 
+echo "Setup complete! You can now run the dashboard with:"
+echo "streamlit run streamlit_app.py" 

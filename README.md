@@ -1,21 +1,39 @@
 # Lead Generation Dashboard
 
-A Streamlit-based dashboard for managing and visualizing real estate leads.
+A Streamlit-based dashboard for managing and analyzing real estate leads.
 
 ## Features
 
 - Lead management and visualization
 - Meeting scheduling
-- Lead source tracking
+- Performance tracking
 - Interactive charts and metrics
 - Meeting notes management
 
-## Local Development
+## Project Structure
+
+```
+leadgen-ai/
+├── data/                  # Data directory
+│   ├── meeting_notes/     # Meeting notes storage
+│   └── leads/            # Lead data storage
+├── src/                   # Source code
+│   ├── dashboard.py       # Dashboard implementation
+│   ├── scrapers/         # Web scraping modules
+│   └── utils/            # Utility functions
+├── config/               # Configuration files
+├── requirements.txt      # Python dependencies
+├── streamlit_app.py      # Main entry point
+├── setup.sh             # Setup script
+└── README.md            # This file
+```
+
+## Setup Instructions
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/leadgen-ai.git
-cd leadgen-ai
+git clone https://github.com/Nadavlistingsync/Leadgen.git
+cd Leadgen
 ```
 
 2. Create and activate a virtual environment:
@@ -32,6 +50,26 @@ pip install -r requirements.txt
 4. Run the dashboard:
 ```bash
 streamlit run streamlit_app.py
+```
+
+## Development
+
+### Running Tests
+```bash
+pytest
+```
+
+### Code Style
+The project uses:
+- Black for code formatting
+- Flake8 for linting
+- MyPy for type checking
+
+Run the following commands to ensure code quality:
+```bash
+black .
+flake8
+mypy .
 ```
 
 ## Deployment
@@ -52,22 +90,6 @@ Create a `.streamlit/secrets.toml` file with any necessary API keys or configura
 ```toml
 [api_keys]
 # Add your API keys here
-```
-
-## Project Structure
-
-```
-leadgen-ai/
-├── data/                  # Data directory
-│   ├── sample_leads.json  # Sample leads data
-│   └── meeting_notes/     # Meeting notes storage
-├── src/                   # Source code
-│   └── dashboard.py       # Dashboard implementation
-├── requirements.txt       # Python dependencies
-├── streamlit_app.py       # Main entry point
-├── setup.sh              # Setup script
-├── Procfile              # Heroku deployment config
-└── README.md             # This file
 ```
 
 ## Contributing
