@@ -1,61 +1,90 @@
-# AI-Powered Lead Generation System
+# Lead Generation AI
 
-An automated system for scraping, analyzing, and reaching out to potential leads.
+A comprehensive lead generation system that combines web scraping, API integration, and data analysis to identify and manage real estate leads.
 
 ## Features
 
-- Web scraping of lead information from multiple sources
-- Data storage in Google Sheets
-- AI-powered personalized outreach messages
-- Automated follow-up system
-- Dashboard for lead tracking
-- Multi-channel outreach (Email, LinkedIn, SMS)
+- **Web Scraping**: Automatically collect leads from various sources
+- **API Integration**: Access data from multiple real estate APIs
+- **Dashboard**: Visualize and manage leads with an interactive dashboard
+- **Meeting Scheduler**: Automatically schedule meetings with leads
+- **Data Analysis**: Analyze lead quality and conversion rates
+
+## Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/leadgen-ai.git
+cd leadgen-ai
+```
+
+2. Create a virtual environment:
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+3. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+4. Set up environment variables:
+```bash
+cp .env.example .env
+# Edit .env with your API keys and credentials
+```
+
+## Usage
+
+1. Run the scrapers:
+```bash
+python src/run_scrapers.py
+```
+
+2. Start the dashboard:
+```bash
+python src/run_dashboard.py
+```
 
 ## Project Structure
 
 ```
 leadgen-ai/
-├── config/
-│   └── settings.py
 ├── src/
 │   ├── scraper/
-│   │   ├── __init__.py
 │   │   ├── base_scraper.py
-│   │   ├── realtor_scraper.py
-│   │   └── yelp_scraper.py
-│   ├── data/
-│   │   └── leads.json
+│   │   ├── public_records_scraper.py
+│   │   └── professional_directory_scraper.py
 │   ├── utils/
-│   │   ├── __init__.py
-│   │   └── helpers.py
-│   └── main.py
+│   │   ├── api_client.py
+│   │   └── data_processor.py
+│   ├── config/
+│   │   └── settings.py
+│   ├── dashboard.py
+│   ├── run_scrapers.py
+│   └── run_dashboard.py
+├── data/
 ├── requirements.txt
+├── .env.example
 └── README.md
 ```
 
-## Setup
+## API Keys Required
 
-1. Clone the repository
-2. Install dependencies: `pip install -r requirements.txt`
-3. Configure your settings in `config/settings.py`
-4. Run the scraper: `python src/main.py`
+- ATTOM Data API
+- Google Maps API
+- SchoolDigger API
+- ClimateCheck API
 
-## Configuration
+## Contributing
 
-Create a `.env` file with the following variables:
-```
-GOOGLE_SHEETS_CREDENTIALS=path/to/credentials.json
-OPENAI_API_KEY=your_openai_api_key
-```
-
-## Usage
-
-1. Configure your target audience in `config/settings.py`
-2. Run the scraper to collect leads
-3. Review and approve leads in the dashboard
-4. System will automatically send personalized outreach
-5. Track responses and follow-ups in the dashboard
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
 
 ## License
 
-MIT License 
+MIT License - see LICENSE file for details 

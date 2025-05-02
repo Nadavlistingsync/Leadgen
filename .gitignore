@@ -8,7 +8,6 @@ __pycache__/
 *$py.class
 *.so
 .Python
-env/
 build/
 develop-eggs/
 dist/
@@ -20,12 +19,14 @@ lib64/
 parts/
 sdist/
 var/
+wheels/
 *.egg-info/
 .installed.cfg
 *.egg
 
 # Virtual Environment
 venv/
+env/
 ENV/
 
 # IDE
@@ -35,8 +36,10 @@ ENV/
 *.swo
 
 # Data files
-src/data/*.json
-!src/data/leads.json
+data/
+*.json
+*.csv
+*.xlsx
 
 # Credentials
 *.pem
@@ -47,6 +50,10 @@ src/data/*.json
 # Logs
 *.log
 logs/
+
+# Cache
+.cache/
+.pytest_cache/
 
 # OS
 .DS_Store
